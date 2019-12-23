@@ -4,7 +4,7 @@ import ControlPanel from "../ControlPanel/ControlPanel";
 class Main extends Component {
   state = {
     levels: [],
-    chosenLevelIndex: [],
+    chosenLevelIndex: 0,
     modalOpen: false,
   };
 
@@ -16,8 +16,8 @@ class Main extends Component {
     this.setState({modalOpen});
   };
 
-  updateLevels = (levels) => {
-    this.setState({levels});
+  updateLevels = async (levels) => {
+    await this.setState({levels});
   };
 
   render() {
