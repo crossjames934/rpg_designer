@@ -12,7 +12,7 @@ class LevelSelector extends Component {
     const {chooseLevel, chosenLevelIndex, levels} = this.props;
     const {dropdownOpen} = this.state;
     const noLevels = levels.length === 0;
-    const toggleText = noLevels ? "Please Add A Level" : levels[chosenLevelIndex].name;
+    const toggleText = noLevels ? "<-- Please Add A Level" : levels[chosenLevelIndex].name;
     return (
       <div>
         <Dropdown isOpen={dropdownOpen} toggle={this.toggleDropdown}>

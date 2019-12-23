@@ -5,7 +5,7 @@ class AddLevelBtn extends Component {
   render() {
     const {changeModalOpen} = this.props;
     return (
-      <div>
+      <div className="mr-2">
         <Button onClick={() => {
           changeModalOpen(true)
         }}>

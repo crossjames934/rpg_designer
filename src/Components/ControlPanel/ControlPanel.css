@@ -1,0 +1,5 @@
+.controlPanel {
+    background: #282c34;
+    padding: 20px;
+    grid-area: control;
+}

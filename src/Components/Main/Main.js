@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import ControlPanel from "../ControlPanel/ControlPanel";
 import LevelGrid from "../LevelGrid/LevelGrid";
+import TileSelectorPanel from "../TileSelectorPanel/TileSelectorPanel";
 
 class Main extends Component {
   state = {
     levels: [],
     chosenLevelIndex: 0,
     modalOpen: false,
+    clickedTileValue: 1,
   };
 
   chooseLevel = async (chosenLevelIndex) => {
@@ -27,16 +29,23 @@ class Main extends Component {
     levelsCopy[chosenLevelIndex] = level;
   };
 
+  updateClickedTileValue = async (clickedTileValue) => {
+    await this.setState({clickedTileValue});
+  };
+
   render() {
-    const {chooseLevel, changeModalOpen, updateLevels, updateCurrentLevel} = this;
-    const {levels, chosenLevelIndex} = this.state;
+    const {chooseLevel, changeModalOpen, updateLevels, updateCurrentLevel, updateClickedTileValue} = this;
+    const {levels, chosenLevelIndex, clickedTileValue} = this.state;
     const stateFunctions = {chooseLevel, changeModalOpen, updateLevels};
     const controlPanelProps = {...this.state, ...stateFunctions};
-    const currentLevel = levels[chosenLevelIndex];
+    const level = levels[chosenLevelIndex];
+    const levelGridProps = {level, clickedTileValue, updateCurrentLevel};
+    const tileSelectorPanelProps = {clickedTileValue, updateClickedTileValue};
     return (
-      <div>
+      <div className="mainApp">
         <ControlPanel {...controlPanelProps}/>
-        <LevelGrid level={currentLevel} updateCurrentLevel={updateCurrentLevel}/>
+        <TileSelectorPanel {...tileSelectorPanelProps}/>
+        <LevelGrid {...levelGridProps}/>
       </div>
     );
   }

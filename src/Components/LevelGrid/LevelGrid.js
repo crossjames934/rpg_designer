@@ -3,22 +3,27 @@ import React, {Component} from 'react';
 class LevelGrid extends Component {
   tile = (tileValue, index) => {
     return(
-      <div key={"tile_"+index}>
+      <div key={"tile_"+index} onClick={() => { this.clickTile(index)}}>
         {tileValue}
       </div>
     )
   };
 
+  clickTile = (index) => {
+
+  };
+
   render() {
     const {level} = this.props;
     if (!level) return null;
-    const {name, width, height, bgTiles} = level;
-    const gridTemplateColumns = `repeat(${width}, 20px)`;
-    const gridTemplateRows = `repeat(${height}, 20px)`;
+    const {width, height, bgTiles} = level;
+    const gridTemplateColumns = `repeat(${width}, 30px)`;
+    const gridTemplateRows = `repeat(${height}, 30px)`;
     const gridStyle = {
       display: 'grid',
       gridTemplateColumns,
-      gridTemplateRows
+      gridTemplateRows,
+      gridArea: 'tilegrid'
     };
     const tiles = bgTiles.split("");
     return (
