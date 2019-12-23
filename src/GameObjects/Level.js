@@ -9,6 +9,7 @@ class Level {
     this.functionalTiles = "0".repeat(totalTiles);
     this.additionalTiles = "0".repeat(totalTiles);
     this.gameObjects = [];
+    this.tileSetIndex = 0;
   }
 }
 

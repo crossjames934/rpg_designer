@@ -12,7 +12,7 @@ class AddLevelModal extends Component {
   submitNewLevel = async () => {
     const {levels, updateLevels, changeModalOpen} = this.props;
     const {name, width, height} = this.state;
-    await updateLevels(...levels, new Level(name, width, height));
+    await updateLevels([...levels, new Level(name, width, height)]);
     changeModalOpen(false);
   };
 
