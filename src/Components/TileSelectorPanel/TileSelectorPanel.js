@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {tileChars} from "../../GameObjects/tileChars";
 import './TileSelectorPanel.css';
 
 class TileSelectorPanel extends Component {
@@ -11,15 +10,22 @@ class TileSelectorPanel extends Component {
       <div className="selectableTile cursor-pointer" onClick={() => updateClickedTileValue(tileChar)}>
         {displayValue}
       </div>
-    )
+    );
+  };
+
+  tileCharCollection = () => {
+    let content = [];
+    for (let i = 0; i <= 255; i++) {
+      content.push(this.selectableTile(i));
+    }
+    return content;
   };
 
   render() {
-    const allTileChars = tileChars.split("");
     return (
       <div className="tileSelectorPanel">
         <div className="d-flex flex-wrap">
-          {allTileChars.map(tileChar => this.selectableTile(tileChar))}
+          {this.tileCharCollection()}
         </div>
       </div>
     );

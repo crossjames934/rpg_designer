@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './Components/Main/Main';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   return (

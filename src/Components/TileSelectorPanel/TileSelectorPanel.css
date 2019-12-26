@@ -4,6 +4,9 @@
     background: rgb(7,7,22);
     color: white;
     grid-area: sidebar;
+    max-height: 100%;
+    overflow-y: scroll;
+    font-size: 12px;
 }
 
 .selectableTile {

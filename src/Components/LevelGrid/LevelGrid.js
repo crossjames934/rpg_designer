@@ -23,12 +23,14 @@ class LevelGrid extends Component {
       display: 'grid',
       gridTemplateColumns,
       gridTemplateRows,
-      gridArea: 'tilegrid'
+      maxHeight: '100%',
+      maxWidth: '100%',
+      overflow: 'scroll',
+      gridArea: 'tilegrid',
     };
-    const tiles = bgTiles.split("");
     return (
       <div style={gridStyle}>
-        {tiles.map((tileValue, index) => this.tile(tileValue, index))}
+        {bgTiles.map((tileValue, index) => this.tile(tileValue, index))}
       </div>
     );
   }
