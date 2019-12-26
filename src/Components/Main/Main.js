@@ -8,7 +8,7 @@ class Main extends Component {
     levels: [],
     chosenLevelIndex: 0,
     modalOpen: false,
-    clickedTileValue: 1,
+    clickedTileValue: 0,
   };
 
   chooseLevel = async (chosenLevelIndex) => {
@@ -27,6 +27,8 @@ class Main extends Component {
     const {levels, chosenLevelIndex} = this.state;
     const levelsCopy = JSON.parse(JSON.stringify(levels));
     levelsCopy[chosenLevelIndex] = level;
+    console.log(levelsCopy);
+    await this.setState({levels: levelsCopy});
   };
 
   updateClickedTileValue = async (clickedTileValue) => {

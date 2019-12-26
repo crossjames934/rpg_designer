@@ -7,7 +7,7 @@ class TileSelectorPanel extends Component {
     const isChosen = clickedTileValue === tileChar;
     const displayValue = isChosen ? <b className="color-gold">{tileChar}</b> : <span>{tileChar}</span>;
     return(
-      <div className="selectableTile cursor-pointer" onClick={() => updateClickedTileValue(tileChar)}>
+      <div key={"selectable_tile_"+tileChar} className="selectableTile cursor-pointer" onClick={() => updateClickedTileValue(tileChar)}>
         {displayValue}
       </div>
     );

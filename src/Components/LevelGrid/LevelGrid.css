@@ -1,0 +1,12 @@
+.levelGrid {
+    display: grid;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: scroll;
+    grid-area: tilegrid;
+}
+
+.test_tile {
+    background: black;
+    color: white;
+}

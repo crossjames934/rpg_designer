@@ -9,6 +9,10 @@ function Level(name, width, height) {
   this.additionalTiles = new Uint8Array(totalTiles);
   this.gameObjects = [];
   this.tileSetIndex = 0;
+  this.copySelf = function() {
+    const {name, width, height, bgTiles, fgTiles, functionalTiles, additionalTiles, gameObjects, tileSetIndex, copySelf} = this;
+    return {name, width, height, bgTiles, fgTiles, functionalTiles, additionalTiles, gameObjects, tileSetIndex, copySelf};
+  };
 }
 
 Level.prototype.getValue = (x, y, tilePropertyName) => {
@@ -21,5 +25,10 @@ Level.prototype.saveValue = (value, x, y, tilePropertyName) => {
   const position = y * this.width + x;
   this[tilePropertyName][position] = value;
 };
+//
+// Level.prototype.copySelf = function() {
+//   const {name, width, height, bgTiles, fgTiles, functionalTiles, additionalTiles, gameObjects, tileSetIndex} = this;
+//   return {name, width, height, bgTiles, fgTiles, functionalTiles, additionalTiles, gameObjects, tileSetIndex};
+// };
 
 export default Level;
